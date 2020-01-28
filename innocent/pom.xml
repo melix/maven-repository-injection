@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    This project simulates a malicious dependency which would impersonate the commons-lang3
+    dependency. It wouldn't live in the same project as in this POC of course, but the idea
+    is that the consumer, just by adding a single dependency, wouldn't realize that the
+    commons-lang3 dependency is substituted with a malicious one.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.acme</groupId>
+    <artifactId>innocent</artifactId>
+    <version>1.1</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <!-- introduces a dependency to commons lang3 but it will be fetched from a different repository -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.3.1</version>
+        </dependency>
+    </dependencies>
+
+    <!-- This build introduces a malicious repository -->
+    <repositories>
+        <repository>
+            <id>malicious</id>
+            <name>malicious</name>
+            <url>file://../malicious/repo</url>
+        </repository>
+    </repositories>
+
+</project>
