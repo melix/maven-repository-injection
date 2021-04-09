@@ -34,7 +34,7 @@ Then publish the attacker library:
 Then go to the `app` victim directory and execute the application:
 
     cd ../app
-    mvn -gs ../settings.xml exec:java
+    mvn -gs ../settings2.xml exec:java
     
 The output will be:
 
