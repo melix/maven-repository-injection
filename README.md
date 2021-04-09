@@ -29,12 +29,13 @@ The first thing to do is to populate the malicious repository with the malicious
 Then publish the attacker library:
 
     cd innocent
-    mvn -gs ../settings.xml install    
+    mvn -gs ../settings2.xml install    
     
 Then go to the `app` victim directory and execute the application:
 
     cd ../app
-    mvn -gs ../settings.xml exec:java
+    mvn -gs ../settings2.xml compile
+    mvn -gs ../settings2.xml exec:java
     
 The output will be:
 
