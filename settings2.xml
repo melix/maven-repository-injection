@@ -1,0 +1,7 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                          https://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <!-- We use this to avoid the use of the local repository from settings.xml which contains the malicious Apache Commons library we deployed -->
+    <localRepository>/tmp/localRepo2</localRepository>
+</settings>
